@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Rick and Morty API</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="site-container" class="site-container">
+      <header class="main-header">
+        <div class="logo">
+          <img src="../public/logo.png" alt="Logo" />
+          <span>RICK & MORTY API</span>
+        </div>
+        <nav class="nav">
+          <a href="https://rickandmortyapi.com/documentation">Docs</a>
+          <a href="https://rickandmortyapi.com/about">About</a>
+          <a href="https://rickandmortyapi.com/support-us">
+            <button class="btn-cta">Support us</button>
+          </a>
+        </nav>
+      </header>
+
+      <h1 class="main-title">The Rick and Morty API</h1>
+      <div id="loader" class="loader hidden"></div>
+      <main class="portal">
+        <div id="cards-container" class="cards-container"></div>
+      </main>
+
+      <footer class="footer">
+        <a href="https://rickandmortyapi.com/api/character" class="footer-item">
+          <span class="label">Characters</span>
+          <span id="characters-count" class="value"></span>
+        </a>
+        <a href="https://rickandmortyapi.com/api/location" class="footer-item">
+          <span class="label">Locations</span>
+          <span id="locations-count" class="value"></span>
+        </a>
+        <a href="https://rickandmortyapi.com/api/episode" class="footer-item">
+          <span class="label">Episodes</span>
+          <span id="episodes-count" class="value"></span>
+        </a>
+      </footer>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
