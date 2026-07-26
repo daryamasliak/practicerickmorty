@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full form for a new character</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+  <div id="form-container">
+    <div id="character-form">
+      <div class="form-group">
+        <label for="char-name">Character Name</label>
+        <input type="text" id="char-name" placeholder="Enter name...">
+        <div class="error-message" id="name-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="char-age">Age</label>
+        <input type="text" id="char-age" placeholder="Enter age...">
+        <div class="error-message" id="age-error"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="char-gender">Gender</label>
+        <select id="char-gender">
+          <option value="">Select gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <div class="error-message" id="gender-error"></div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+        <button type="button" id="submit-session" class="exp-btn" disabled>Save to SessionStorage</button>
+        <button type="button" id="submit-firebase" class="exp-btn" disabled>Send to Firebase</button>
+        <button type="button" id="submit-notion" class="exp-btn" disabled>Push to Notion</button>
+      </div>
+
+    </div>
+  </div>
+  <script src="experimental.js"></script>
+</body>
+</html>

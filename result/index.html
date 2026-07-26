@@ -9,38 +9,90 @@
   <body>
     <div id="site-container" class="site-container">
       <header class="site-header">
-        <div class="logo" id="logo">
-          <img src="../public/logo.png" alt="Logo" id="logo-img" />
-          <span>RICK & MORTY API</span>
-        </div>
-
-        <nav class="header-nav">
-          <div class="dropdown">
-            <button class="dropdown-btn">
-              Characters <span class="arrow">▼</span>
-            </button>
-            <div class="dropdown-content">
-              <button class="filter-btn" data-status="">All characters</button>
-              <button class="filter-btn" data-status="alive">🟢 Alive</button>
-              <button class="filter-btn" data-status="dead">🔴 Dead</button>
-              <button class="filter-btn" data-status="unknown">
-                🟡 Unknown
-              </button>
-            </div>
+        <div class="header-top-row">
+          <div class="logo" id="logo">
+            <img src="../public/logo.png" alt="Logo" id="logo-img" />
+            <span>RICK & MORTY API</span>
           </div>
-        </nav>
 
-        <button id="burger-menu-btn" class="burger-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <nav class="header-nav">
+            <div class="dropdown">
+              <button class="dropdown-btn">
+                Characters <span class="arrow">▼</span>
+              </button>
+              <div class="dropdown-content">
+                <button class="filter-btn" data-status="">All characters</button>
+                <button class="filter-btn" data-status="alive">🟢 Alive</button>
+                <button class="filter-btn" data-status="dead">🔴 Dead</button>
+                <button class="filter-btn" data-status="unknown">
+                  🟡 Unknown
+                </button>
+              </div>
+            </div>
+          </nav>
+
+
+
+          <button id="burger-menu-btn" class="burger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        
+        <div class="header-bottom-row">
+          <button id="create-char-btn">Create new character +</button>
+          <a href="experimental.html" target="_blank" class="btn-experimental">Open full form for a new character</a>
+        </div>
       </header>
 
       <div id="sidebar-right" class="sidebar sidebar-right">
         <button class="sidebar-close-btn" id="close-right-btn">&times;</button>
         <div class="sidebar-content">
           <h3>Navigation through the Universe</h3>
+
+          <nav class="sidebar-accordion">
+            <div class="accordion-item">
+              <button class="accordion-title">Characters<span class="sub-arrow">▶</span></button>
+              <div class="accordion-submenu" id="sidebar-characters-list">
+                <button class="submenu-item item-character" data-id="1">...</button>
+                <button class="submenu-item item-character" data-id="2">...</button>
+                <button class="submenu-item item-character" data-id="3">...</button>
+                <button class="submenu-item item-character" data-id="4">...</button>
+                <button class="submenu-item item-character" data-id="5">...</button>
+                <button class="submenu-item item-action" data-action="all-characters">Other characters...</button>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-title">Locations<span class="sub-arrow">▶</span></button>
+              <div class="accordion-submenu" id="sidebar-locations-list">
+                <button class="submenu-item item-location" data-id="1">...</button>
+                <button class="submenu-item item-location" data-id="2">...</button>
+                <button class="submenu-item item-location" data-id="3">...</button>
+                <button class="submenu-item item-location" data-id="4">...</button>
+                <button class="submenu-item item-location" data-id="5">...</button>
+                <button class="submenu-item item-location" data-id="6">...</button>
+                <button class="submenu-item item-location" data-id="7">...</button>
+                <button class="submenu-item item-location" data-id="8">...</button>
+                <button class="submenu-item item-location" data-id="9">...</button>
+                <button class="submenu-item item-action" data-action="all-locations">Other locations...</button>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-title">Episodes<span class="sub-arrow">▶</span></button>
+              <div class="accordion-submenu">
+                <button class="submenu-item item-episode" data-season="1">Season 1</button>
+                <button class="submenu-item item-episode" data-season="2">Season 2</button>
+                <button class="submenu-item item-episode" data-season="3">Season 3</button>
+                <button class="submenu-item item-episode" data-season="4">Season 4</button>
+                <button class="submenu-item item-episode" data-season="5">Season 5</button>
+                <button class="submenu-item item-action" data-action="all-episodes">Other seasons...</button>
+              </div>
+            </div>
+          </nav>
+
 
           <nav class="sidebar-nav-links">
             <a
@@ -70,6 +122,58 @@
       <div id="loader" class="loader hidden"></div>
 
       <main class="portal">
+        <div id="form-container" class="hidden">
+          <form id="character-form" novalidate>
+            <div class="form-group">
+              <label for="char-name">Name:</label>
+              <input 
+                type="text" 
+                id="char-name" 
+                name="name" 
+                placeholder="Maximum 10 symbols"
+                required
+              >
+              <span id="name-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="char-age">Age:</label>
+              <input 
+                type="text" 
+                id="char-age" 
+                name="age" 
+                placeholder="Only whole numbers"
+                required
+              >
+              <span id="age-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="char-gender">Gender:</label>
+              <select id="char-gender" name="gender" required>
+                <option value="" disabled selected>Choose your gender:</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+              <span id="gender-error" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <span class="label-text">Status:</span>
+              
+              <label class="switch-container">
+                <input type="checkbox" id="char-status" name="isAlive" checked>
+                <span class="switch-slider"></span>
+              </label>
+              
+              <span id="status-text">Alive</span>
+            </div>
+
+            <button type="submit" id="submit-btn">Create a new character</button>
+
+          </form>
+        </div>
         <div id="cards-container" class="cards-container"></div>
         <div id="pagination-container" class="pagination-container"></div>
       </main>
@@ -102,6 +206,8 @@
       </footer>
     </div>
 
+    <div id="backdrop-overlay" class="backdrop-overlay"></div>
+    
     <script type="module" src="main.js"></script>
   </body>
 </html>
