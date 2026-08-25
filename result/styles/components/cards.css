@@ -1,0 +1,136 @@
+.cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.character-card {
+  background: rgba(20, 20, 20, 0.8);
+  border: 2px solid #97ce4c;
+  border-radius: 12px;
+  padding: 15px;
+  color: white;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  cursor: pointer;
+  text-align: center;
+  width: calc(33.333% - 20px);
+  min-width: 200px;
+  box-sizing: border-box;
+}
+.character-card:nth-child(2n) {
+  transform: rotate(-3deg);
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(151, 206, 76, 0.6);
+}
+.character-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.character-card h3 {
+  color: #97ce4c;
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+
+.single-character-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.9);
+  border: 3px solid #97ce4c;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 450px;
+  margin: 30px auto;
+  color: white;
+  text-align: center;
+}
+.single-character-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid #97ce4c;
+  margin-bottom: 15px;
+}
+.single-character-title {
+  color: #97ce4c;
+  margin: 5px 0;
+}
+.character-specialities {
+  text-align: left;
+  width: 100%;
+  max-width: 280px;
+  margin: 10px auto;
+  font-size: 16px;
+}
+
+.episode-card {
+  background: #1a1a1a;
+  border: 2px solid #97ce4c;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 15px rgba(151, 206, 76, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(151, 206, 76, 0.4);
+}
+
+.episode-code {
+  background: #97ce4c;
+  color: black;
+  font-weight: bold;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+.episode-name {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.episode-date {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.btn-experimental {
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  background-color: #10b981;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.hidden {
+  display: none !important;
+}
