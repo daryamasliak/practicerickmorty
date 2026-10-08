@@ -95,6 +95,46 @@ export function initCharacterForm() {
   });
 }
 
+const successAlert = {
+  message: "Data was sent succesfully!",
+  bgColor: "#10B981",
+  textColor: "#f6f4f4",
+};
+
+const errorAlert = {
+  message: "Error... Smth wrong",
+  bgColor: "#EF4444",
+  textColor: "#f6f4f4",
+};
+
+const warningAlert = {
+  message: "Warning!!!! Fill whole form",
+  bgColor: "#F59E0B",
+  textColor: "#f6f4f4",
+};
+
+function showAlert() {
+  const alertBox = document.createElement("div");
+  alertBox.className = "custom-alert";
+  alertBox.textContent = this.message;
+  alertBox.style.backgroundColor = this.bgColor;
+  alertBox.style.color = this.textColor;
+
+  alertBox.style.padding = "12px 16px";
+  alertBox.style.marginTop = "8px";
+  alertBox.style.borderRadius = "6px";
+  alertBox.style.fontWeight = "bold";
+
+  const container = document.getElementById("alert-container");
+  container.appendChild(alertBox);
+
+  setTimeout(() => alertBox.remove(), 3000);
+}
+
+const showSuccess = showAlert.bind(successAlert);
+const showError = showAlert.bind(errorAlert);
+const showWarning = showAlert.bind(warningAlert);
+
 export class Form {
   constructor(formId) {
     this.formElement = document.getElementById(formId);
@@ -204,13 +244,19 @@ export class CharacterForm extends Form {
   }
 
   saveToSession() {
+    if (!this.validate()) {
+      showWarning();
+    }
+
     const character = this.getCharacterData();
     let sessionData =
       JSON.parse(sessionStorage.getItem("mySessionCharacters")) || [];
     sessionData.push(character);
     sessionStorage.setItem("mySessionCharacters", JSON.stringify(sessionData));
+
     this.formElement.reset();
-    alert("Data was sent to Session Storage");
+    this.validate();
+    showSuccess();
   }
 
   async saveToFirebase() {
@@ -218,31 +264,41 @@ export class CharacterForm extends Form {
     try {
       await addDoc(collection(db, "characters"), character);
       this.formElement.reset();
-      alert("Data was sent to Firebase");
+      this.validate();
+      showSuccess();
     } catch (error) {
       console.log(error);
-      alert("smth wrong with:", error);
+      showError();
     }
   }
 
   async saveToNotion() {
-    const character = this.getCharacterData();
-    const response = await fetch(
-      "https://hook.eu1.make.com/vsfot8hqo7b8ie53i36nem6bi6h7i42k",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(character),
-      },
-    );
+    if (!this.validate()) {
+      showWarning();
+    }
 
-    if (response.ok) {
-      this.formElement.reset();
-      alert("Data was sent to Notion");
-    } else {
-      alert("smth wrong");
+    const character = this.getCharacterData();
+    try {
+      const response = await fetch(
+        "https://hook.eu1.make.com/vsfot8hqo7b8ie53i36nem6bi6h7i42k",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(character),
+        },
+      );
+
+      if (response.ok) {
+        this.formElement.reset();
+        this.validate();
+        showSuccess();
+      } else {
+        showError();
+      }
+    } catch (error) {
+      showError();
     }
   }
 }

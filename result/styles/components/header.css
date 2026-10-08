@@ -95,7 +95,7 @@
 }
 
 .dropdown-content .filter-btn.active {
-  background-color: #97ce4c !important;
+  background: #97ce4c !important;
   color: black !important;
   font-weight: bold;
 }
@@ -138,6 +138,7 @@
   height: 42px;
   padding: 0 1.2rem;
   box-sizing: border-box;
+  background-color: #97ce4c;
 }
 
 #create-char-btn {
@@ -150,8 +151,8 @@
 
 #create-char-btn {
   background-color: #000000;
-  color: #10b981;
-  border: 2px solid #10b981;
+  color: #97ce4c;
+  border: 2px solid #97ce4c;
   padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 700;
@@ -159,12 +160,28 @@
   letter-spacing: 0.05em;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 10px #97ce4c;
   transition: all 0.2s ease;
 }
 
 #create-char-btn:hover {
-  background-color: #10b981;
+  background-color: #97ce4c;
   color: #000000;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 15px #97ce4c;
+}
+
+.search-input {
+  padding: 8px 16px;
+  border: 2px solid #000;
+  border-radius:6px;
+  outline:none;
+  font-size:14px;
+  background-color: #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  background-color: #fff;
+  border-color: #97ce4c;
+  box-shadow: 0 0 8px rgba(151, 206, 76, 0.6);
 }

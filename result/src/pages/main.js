@@ -8,12 +8,9 @@ import { renderCards } from "../components/characterCard.js";
 import { initCounters } from "../components/counters.js";
 import { CharacterForm } from "../components/form.js";
 import { setupPagination } from "../components/pagination.js";
-import {
-  setupSidebarEvents,
-  FillSidebarNames,
-  fillSidebarLocations,
-  closeSidebar,
-} from "../components/sidebar.js";
+import {initSidebar} from "../components/sidebar.js";
+
+import { initSearch } from "../components/searchCharacters.js";
 
 const cardsContainer = document.getElementById("cards-container");
 const loaderElement = document.getElementById("loader");
@@ -95,11 +92,9 @@ export async function loadEpisodes(seasonCode) {
 async function initApp() {
   new CharacterForm("character-form");
   initCounters();
+  initSearch(loadCharacters);
 
-  await FillSidebarNames();
-  await fillSidebarLocations();
-
-  setupSidebarEvents(loadCharacters, loadSingleCharacter, loadEpisodes);
+  await initSidebar(loadCharacters,loadSingleCharacter,loadEpisodes);
 
   if (logoElement) {
     logoElement.addEventListener("click", () => {

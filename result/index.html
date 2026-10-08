@@ -31,6 +31,7 @@
                 </button>
               </div>
             </div>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search character..."/>
           </nav>
 
           <button id="burger-menu-btn" class="burger-btn">
@@ -48,134 +49,11 @@
         </div>
       </header>
 
-      <div id="sidebar-right" class="sidebar sidebar-right">
-        <button class="sidebar-close-btn" id="close-right-btn">&times;</button>
-        <div class="sidebar-content">
-          <h3>Navigation through the Universe</h3>
-
-          <nav class="sidebar-accordion">
-            <div class="accordion-item">
-              <button class="accordion-title">
-                Characters<span class="sub-arrow">▶</span>
-              </button>
-              <div class="accordion-submenu" id="sidebar-characters-list">
-                <button class="submenu-item item-character" data-id="1">
-                  ...
-                </button>
-                <button class="submenu-item item-character" data-id="2">
-                  ...
-                </button>
-                <button class="submenu-item item-character" data-id="3">
-                  ...
-                </button>
-                <button class="submenu-item item-character" data-id="4">
-                  ...
-                </button>
-                <button class="submenu-item item-character" data-id="5">
-                  ...
-                </button>
-                <button
-                  class="submenu-item item-action"
-                  data-action="all-characters"
-                >
-                  Other characters...
-                </button>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-title">
-                Locations<span class="sub-arrow">▶</span>
-              </button>
-              <div class="accordion-submenu" id="sidebar-locations-list">
-                <button class="submenu-item item-location" data-id="1">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="2">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="3">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="4">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="5">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="6">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="7">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="8">
-                  ...
-                </button>
-                <button class="submenu-item item-location" data-id="9">
-                  ...
-                </button>
-                <button
-                  class="submenu-item item-action"
-                  data-action="all-locations"
-                >
-                  Other locations...
-                </button>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-title">
-                Episodes<span class="sub-arrow">▶</span>
-              </button>
-              <div class="accordion-submenu">
-                <button class="submenu-item item-episode" data-season="1">
-                  Season 1
-                </button>
-                <button class="submenu-item item-episode" data-season="2">
-                  Season 2
-                </button>
-                <button class="submenu-item item-episode" data-season="3">
-                  Season 3
-                </button>
-                <button class="submenu-item item-episode" data-season="4">
-                  Season 4
-                </button>
-                <button class="submenu-item item-episode" data-season="5">
-                  Season 5
-                </button>
-                <button
-                  class="submenu-item item-action"
-                  data-action="all-episodes"
-                >
-                  Other seasons...
-                </button>
-              </div>
-            </div>
-          </nav>
-
-          <nav class="sidebar-nav-links">
-            <a
-              href="https://rickandmortyapi.com/documentation"
-              target="_blank"
-              class="sidebar-link"
-              >Docs</a
-            >
-            <a
-              href="https://rickandmortyapi.com/about"
-              target="_blank"
-              class="sidebar-link"
-              >About Us</a
-            >
-            <a
-              href="https://rickandmortyapi.com/support-us"
-              target="_blank"
-              class="sidebar-link-btn"
-              >Support Us</a
-            >
-          </nav>
-        </div>
-      </div>
+      <aside id="sidebar-right" class="sidebar sidebar-right">
+        <button id="close-right-btn" class="sidebar-close-btn">&times;</button>
+        <h2 class="sidebar-title">Multiverse menu</h2>
+        <nav id="sidebar-navigation" class="sidebar-nav"></nav>
+      </aside>
 
       <h1 class="main-title">The Rick and Morty API</h1>
 

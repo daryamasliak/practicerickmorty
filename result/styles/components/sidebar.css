@@ -3,11 +3,11 @@
   top: 0;
   right: 0;
   width: 320px;
-  height: 100%;
-  background-color: #ffffff;
-  border-left: 1px solid #ccc;
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
-  color: #333;
+  height: 100vh;
+  background-color: #1a1e24;
+  border-left: 2px solid #97ce4c;
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+  color: #fff;
   padding: 40px 20px;
   box-sizing: border-box;
   z-index: 1000;
@@ -15,59 +15,72 @@
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
 }
+
 .sidebar-right.open {
   transform: translateX(0);
 }
+
 .sidebar-close-btn {
   background: none;
   border: none;
-  color: #333;
+  color: #97ce4c;
   font-size: 28px;
   cursor: pointer;
   position: absolute;
   top: 15px;
   left: 15px;
 }
+
 .sidebar-content {
   margin-top: 40px;
 }
 
-.sidebar-accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
 .accordion-title {
   width: 100%;
-  background: rgba(30, 30, 30, 0.9);
   border: 1px solid #97ce4c;
   color: white;
   text-align: left;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
-  padding: 12px 15px;
+  padding: 10px 14px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  transition: 0.2s ease;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.accordion-title.main-title {
+  background: #242b35;
+  border-color: #97ce4c;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.accordion-title.sub-title {
+  background: #2d3542;
+  border-color: rgba(151, 206, 76, 0.4);
+  color: #e2e8f0;
+  font-size: 13px;
 }
 
 .accordion-title:hover {
-  background: #222;
-  color: #97ce4c;
+  background: #97ce4c;
+  color: #1a1e24;
 }
 
-.accordion-trigger .sub-arrow {
-  font-size: 12px;
+.accordion-title .sub-arrow {
+  font-size: 10px;
+  display: inline-block;
   transition: transform 0.3s ease;
 }
-.accordion-trigger.active .sub-arrow {
+
+.accordion-title.active .sub-arrow {
   transform: rotate(90deg);
 }
+
 .accordion-submenu {
   max-height: 0;
   overflow: hidden;
@@ -75,95 +88,45 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  padding-left: 10px;
+  list-style: none;
+  padding-left: 0;
 }
+
 .accordion-submenu.open {
-  max-height: 450px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  max-height: 2000px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 12px;
+  border-left: 2px solid rgba(151, 206, 76, 0.3);
 }
 
 .submenu-item {
-  background: #f9f9f9;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  color: #333;
+  width: 100%;
+  background: #222730;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
   padding: 8px 12px;
   text-align: left;
   cursor: pointer;
-  font-size: 14px;
-  border-radius: 6px;
+  font-size: 13px;
+  border-radius: 4px;
   transition: 0.2s;
 }
 
 .submenu-item:hover {
-  background: #beec7a;
-  color: black;
+  background: rgba(151, 206, 76, 0.2);
+  color: #97ce4c;
+  border-color: #97ce4c;
 }
 
 .item-action {
-  background: rgba(151, 206, 76, 0.1);
-  color: #55801b;
-  font-weight: bold;
-  border: 1px dashed #97ce4c;
+  background: rgba(151, 206, 76, 0.08);
+  color: #97ce4c;
+  font-weight: 600;
+  border: 1px dashed rgba(151, 206, 76, 0.5);
 }
+
 .item-action:hover {
   background: #97ce4c;
-  color: black;
-}
-
-.donate-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  background: #ff9800;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-}
-
-.sidebar-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.sidebar-link {
-  color: #333;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 6px;
-  transition: 0.2s ease;
-}
-
-.sidebar-link:hover {
-  background-color: #f0f0f0;
-  color: #97ce4c;
-  padding-left: 15px;
-}
-
-.sidebar-link-btn {
-  display: block;
-  text-align: left;
-  text-decoration: none;
-  border-left: 4px solid #ff9800;
-  color: #ff9800;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: bold;
-  transition: 0.2s ease;
-  margin-top: 10px;
-  background: rgba(255, 152, 0, 0.05);
-}
-
-.sidebar-link-btn:hover {
-  background: #ff9800;
-  color: white;
-  padding-left: 20px;
+  color: #1a1e24;
 }

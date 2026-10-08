@@ -4,7 +4,7 @@
   padding: 2.5rem 2rem;
   background-color: #0d1117;
   border-radius: 12px;
-  border: 2px solid #10b981;
+  border: 2px solid #97ce4c;
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
   font-family:
     system-ui,
@@ -49,7 +49,7 @@
   font-size: 0.95rem;
   border: 1px solid #30363d;
   border-radius: 6px;
-  background-color: #161b22; /* Контрастный темный фон */
+  background-color: #161b22;
   color: #ffffff;
   transition: all 0.2s ease;
   outline: none;
@@ -192,4 +192,30 @@
   color: #484f58;
   border: 1px solid #30363d;
   cursor: not-allowed;
+}
+
+#alert-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 450px;
+  pointer-events: none; 
+}
+
+.custom-alert {
+  pointer-events: auto;
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+  animation: slideDown 0.3s ease-out forwards;
 }
